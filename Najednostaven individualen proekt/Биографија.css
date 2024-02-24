@@ -1,0 +1,22 @@
+#container2{
+    background: url("containerbackground2.gif")repeat-y;
+    width: 663px;
+    margin:auto;
+    height: 195px;
+
+}
+#kralimarko{
+    margin-top: 0px;
+    width: 400px;
+    display: inline-block;
+    margin-left: 36px;
+}
+#kokoska{
+    background: url("bio.jpg")no-repeat;
+width: 1300px;
+    height: 1300px;
+    background-size: 15%;
+    display: inline-block;
+    margin-left: 397px;
+    margin-top: -200px;
+}

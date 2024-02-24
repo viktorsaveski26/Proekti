@@ -1,0 +1,39 @@
+#kont{
+    background: url("kont.gif")repeat-y;
+    width: 663px;
+    height: 1000px;
+    margin: auto;
+}
+#majstorzaweb{
+    margin-top: -1000px;
+margin-left: 460px;
+    width: 623px;
+    font-size: 15px;
+}
+#konj{
+    margin-left: 500px;
+}
+#movie1{
+    background: url("pass.jpg")no-repeat;
+    width: 184px;
+    height: 273px;
+    display: inline-block;
+    margin-left: 860px;
+}
+#movie2{
+    background: url("images.jpg")no-repeat;
+    display: inline-block;
+    width: 540px;
+    height: 340px;
+    margin-left: 470px;
+    margin-top: -250px;
+}
+#gipson{
+    background: url("gipson.jpg")no-repeat;
+    width: 843px;
+    height: 843px;
+    display: inline-block;
+    background-size: 70%;
+    margin-left: 457px;
+    margin-top: -100px;
+}

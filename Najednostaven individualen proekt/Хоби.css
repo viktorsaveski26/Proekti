@@ -1,0 +1,48 @@
+#containerce{
+    background: url("containerbackground3.gif")repeat-y;
+    width: 663px;
+    margin:auto;
+    height: 1776px;
+    margin-top:-100px;
+}
+#viksa {
+    margin-left: 50px;
+    margin-top: -1670px;
+    width: 350px;
+    margin-left: 460px
+}
+#sah{
+    background: url("sah.jpg")no-repeat;
+    width: 378px;
+    height: 230px;
+    display: inline-block;
+    margin-left: 500px;
+}
+#tenis{
+    background: url("tenis.jpg")no-repeat;
+    width: 2048px;
+    height: 1536px;
+    display: inline-block;
+    background-size: 29%;
+    margin-left: 455px;
+}
+#gitarce{
+    background:url("gitarce.jpg")no-repeat;
+    width: 1068px;
+    height: 1600px;
+    display: inline-block;
+    background-size: 18%;
+    margin-left: 855px;
+margin-top: -1095px;
+}
+#muzika{
+    background: url("muzika.jpg")no-repeat;
+    width: 2048px;
+    height: 1536px;
+    display: inline-block;
+    background-size: 19%;
+    margin-left: 457px;
+    margin-top: -2200px
+
+
+}

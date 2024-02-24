@@ -1,0 +1,20 @@
+#gjubre{
+    background: url("gjubre.gif")repeat-y;
+    width: 663px;
+    height: 600px;
+    margin: auto;
+
+}
+#slatino{
+   width: 400px;
+    margin-top: -600px;
+    margin-left: 465px;
+}
+#vik{
+    background: url("vik.jpg")no-repeat;
+    width: 1296px;
+    height: 1734px;
+    background-size: 46%;
+    display: inline-block;
+    margin-left: 452px;
+}
