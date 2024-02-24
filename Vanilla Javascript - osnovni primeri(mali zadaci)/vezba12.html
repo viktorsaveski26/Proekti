@@ -1,0 +1,21 @@
+var data = '[{"title":"FCSE announcement", "post":"FSCE is starting with classes this semestar from 15th Feb.", "type":"Free", "category":"Education", "published":true},{"title":"What is an NFT", "post":"An NFT, which stands for non-fungible token, is a unique unit of data employing technology that allows digital content to become logged and authenticated on cryptocurrency blockchains", "type":"Free", "category":"Science", "published": false}]';
+
+var newData = JSON.parse(data);
+var counter = 0;
+
+var tableHTML = '<table><tr><th>Title</th><th>Post</th><th>Link</th><th>Type</th><th>Category</th><th>Actions</th></tr>';
+
+  for (var i = 0; i < newData.length; i++) {
+  var title = newData[i].title;
+  var post = newData[i].post;
+  var type = newData[i].type;
+  var category = newData[i].category;
+  var link = "finki.ukim.mk/" + title.toLowerCase().replace(" ", "-");
+
+  tableHTML += "<tr><td>" + title + "</td><td>" + post + "</td><td>" + link + "</td><td>" + type + "</td><td>" + category + "</td><td><button>Publish</button><button>Remove</button></td></tr>";
+  }
+
+  tableHTML += '</table>';
+
+var vnes = document.getElementById("rezultat");
+vnes.innerHTML = tableHTML;

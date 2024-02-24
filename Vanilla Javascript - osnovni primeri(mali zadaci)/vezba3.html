@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+function promeni(){
+    var x = document.getElementsByTagName("h1");
+    for(var  i = 0; i < x.length; i++) {
+        x[i].style.fontSize = "20px";
+        x[i].innerHTML = "Changed";
+    }
+}
+    </script>
+</head>
+<body>
+<h1>Hello world</h1>
+<h1 id="viktor">Hello viktor</h1>
+<h1>Hello viktorija</h1>
+<button onclick="promeni()">Change</button>
+</body>
+</html>

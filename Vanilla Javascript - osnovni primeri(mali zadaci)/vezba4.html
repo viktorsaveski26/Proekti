@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function  Apple(color, weight){
+    this.color  = color;
+    this.weight = weight;
+  }
+  Apple.prototype = {
+    eat : function (){return "eat the apple"; },
+    throw : function () {return "throw the apple";}
+  };
+  var apple1 = new Apple("red",99)
+  var apple2 = new Apple("green",109)
+  var apple3 = new Apple("yellow",299)
+</script>
+</body>
+</html>

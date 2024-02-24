@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+
+</style>
+    <script>
+        function postavi(){
+            var boja;
+            var shirina;
+            var visina;
+            var text;
+
+            var sodrzina = document.getElementById("sodrzina").value;
+            var site = sodrzina.split(',');
+            boja = site[0];
+            shirina = site[1];
+            visina = site[2];
+            text = site[3];
+            var novtekst="";
+            for(var i = 0; i < text.length; i++) {
+                if (i % 2 == 0) {
+
+                    novtekst+=text.charAt(i).toUpperCase();
+                } else {
+                 novtekst+=text.charAt(i).toLowerCase();
+                }
+            }
+            var rezultat = document.getElementById("rezultat");
+            rezultat.style.width = shirina + "px";
+            rezultat.style.height = visina + "px";
+            rezultat.style.backgroundColor = boja;
+            rezultat.innerHTML=novtekst;
+
+
+
+        }
+    </script>
+</head>
+<body>
+<div>
+    <input type="text" id="sodrzina">
+    <button onclick="postavi()">Постави</button>
+</div>
+<div id="rezultat">
+
+</div>
+<div id="proba">
+
+</div>
+</body>
+</html>

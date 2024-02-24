@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    div{
+      margin-top: 5px;
+    }
+    table,tr,th,td{
+   border:1px black solid;
+    }
+    table{
+      border-collapse: collapse;
+    }
+  </style>
+  <script>
+      var total_sum = 0;
+function submit_data(){
+  var avtor = document.getElementById("avtor");
+  avtor = avtor.value;
+  var proekt = document.getElementById("proekt");
+  proekt= proekt.value;
+  var cena = document.getElementById("cena");
+  cena = cena.value;
+
+  if(avtor === "" || proekt === "" || cena === ""){
+    alert("Vnesete vrednost vo site polinja");
+    return;
+  }
+  total_sum+=parseInt(cena);
+  var suma = document.getElementById("vkupna_suma");
+  suma.innerHTML = total_sum;
+  var tabela = document.getElementById("tabela");
+  tabela.innerHTML += "<tr><td>"+avtor+"</td><td>"+proekt+"</td><td>"+cena+"</td><td><button onclick='remove(this)'>Remove</button></td></tr>"
+  var avtor = document.getElementById("avtor");
+  avtor.value = "";
+  var proekt = document.getElementById("proekt");
+  proekt.value= "";
+  var cena = document.getElementById("cena");
+  cena.value = "";
+}
+function remove(button){
+
+    var redica = button.parentNode.parentNode;
+    redica.parentNode.removeChild(redica);
+    var kelii_redica = redica.getElementsByTagName("td");
+     var kelija_cena = kelii_redica[2];
+    var price = kelija_cena.innerHTML;
+    total_sum -= parseInt(price);
+    var pole_suma = document.getElementById("vkupna_suma");
+    pole_suma.innerHTML = total_sum;
+
+}
+  </script>
+</head>
+<body>
+<h2>Forma za prijavuvanje</h2>
+<div>
+  <span>Avtor:</span>
+  <input type="text" id="avtor">
+</div>
+<div>
+  <span>Proekt:</span>
+   <input type="text" id="proekt">
+</div>
+<div>
+  <span>Cena:</span>
+  <input type="text" id="cena">
+</div>
+<div>
+
+  <button onclick="submit_data()">Add</button>
+</div>
+<p>Vkupnata suma e: <span id="vkupna_suma">0</span></p>
+<table id="tabela">
+  <tr><th>Author</th><th>Project</th><th colspan="2">Cost</th></tr>
+</table>
+</body>
+</html>

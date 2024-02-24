@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+     #oboi div{
+      border: 1px solid;
+      width: 150px;
+      height: 230px;
+      display: inline-block;
+    }
+  </style>
+
+  <script>
+    var vkupno=0;
+    function generiraj(){
+      var ime = document.getElementById("ime");
+      ime = ime.value;
+      var prezime = document.getElementById("prezime");
+      prezime = prezime.value;
+      var registracija = document.getElementById("registracija");
+      registracija=registracija.value;
+      var godini = document.getElementById("godini");
+      godini =godini.value;
+      var da = document.getElementById("da");
+
+      var  ne = document.getElementById("ne");
+
+      if(ime == "" || prezime == "" || registracija == "" || godini == ""){
+        alert("Vnesete vrednost vo site polinja");
+        return;
+      }
+      var osnovna = document.getElementById("osnovna");
+      var vk_cena = 1000;
+      var soobrakajka = 500;
+      if((parseInt(registracija.charAt(3)) === parseInt(registracija.charAt(4)) ) && (parseInt(registracija.charAt(4)) === parseInt(registracija.charAt(5)))
+      &&(registracija.charAt(5) === registracija.charAt(6))){
+        vk_cena+=parseInt(osnovna.innerHTML);
+        osnovna.innerHTML = vk_cena;
+      }
+      if(da.checked == true){
+        soobrakajka+=parseInt(osnovna.innerHTML);
+        osnovna.innerHTML = soobrakajka;
+      }
+      if(parseInt(godini) > 30){
+        var staro = document.getElementById("staro");
+        staro.innerHTML = "Staro vozilo";
+
+      }
+      else{
+        var staro = document.getElementById("staro");
+        staro.innerHTML = "Novo vozilo";
+      }
+
+     var pecati = document.getElementById("pecati");
+      pecati.innerHTML+=ime+" "+prezime+ osnovna.innerHTML+"<p><button onclick='plati(this)' >Plati</button><button onclick='izbrisi(this)' >Izbrisi</button></p>"
+      vkupno++;
+      var brojsmetki = document.getElementById("vkupno");
+      brojsmetki.innerHTML=vkupno;
+      if(parseInt(godini) > 30){
+        var oboi = document.getElementById("oboi");
+        oboi.style.color="red";
+
+      }
+      var ime = document.getElementById("ime");
+      ime.value = "";
+      var prezime = document.getElementById("prezime");
+      prezime.value = "";
+      var registracija = document.getElementById("registracija");
+      registracija.value="";
+      var godini = document.getElementById("godini");
+      godini.value ="";
+osnovna.innerHTML = 3000;
+    }
+    function izbrisi(button){
+      var roditel = button.parentNode.parentNode;
+      roditel.parentNode.removeChild(roditel);
+      vkSmetki--;
+      var vkupno = document.getElementById("vkupno");
+      vkupno.innerHTML=vkSmetki;
+    }
+    function plati(button){
+      button.disabled = true;
+      button.nextSibling.disabled = true;
+    }
+  </script>
+</head>
+<body>
+<h1>Osiguruvanje na vozila</h1>
+<div>
+  <span>Ime</span>
+  <input type="text" id="ime">
+</div>
+<div>
+  <span>Prezime:</span>
+  <input type="text" id="prezime">
+</div>
+<div>
+  <span>Registarska tablica</span>
+  <input type="text" id="registracija">
+</div>
+<div>
+  <span>Godini na starost</span>
+  <input type="text" id="godini">
+</div>
+<div>
+  <span>Soobrakanja nezgoda</span>
+  <input type="radio" id="da">
+  <span>da</span>
+  <input type="radio" id="ne">
+  <span>ne</span>
+</div>
+<div>
+  <button onclick="generiraj()">Generiraj smetka</button>
+</div>
+<div>
+  <span id="osnovna">3000</span>
+</div>
+<div>
+  <span id="staro"></span>
+</div>
+<div id="oboi">
+
+</div>
+<div>
+  <span id="vkupno">0</span>
+  <span>smetki</span>
+</div>
+</body>
+</html>

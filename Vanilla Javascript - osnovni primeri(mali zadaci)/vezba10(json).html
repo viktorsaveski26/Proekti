@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table, tr, td, th {
+      border: 1px solid;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+  </style>
+  <script>
+    var global = 0;
+    var dodavanja = 0;
+
+    // JSON податоци
+    var data = '[{"title":"FCSE announcement", "post":"FSCE is starting with classes this semestar from 15th Feb.", "type":"Free", "category":"Education", "published":true},{"title":"What is ann NFT", "post":"An NFT, which stands for non-fungible token, is a unique unit of data employing technology that allows digital content to become logged and authenticated on cryptocurrency blockchains", "type":"Free", "category":"Science", "published": false}]';
+
+    var newData = JSON.parse(data);
+
+    // Функција за вметнување на податоците од JSON во табелата
+    function populateTable() {
+      var vnes = document.getElementById("rezultat");
+
+      for (var i = 0; i < newData.length; i++) {
+        var title = newData[i].title;
+        var post = newData[i].post;
+        var type = newData[i].type;
+        var category = newData[i].category;
+        var link = "finki.ukim.mk/" + title.toLowerCase().replace(" ", "-");
+
+        vnes.innerHTML += "<tr><td>" + title + "</td><td>" + post + "</td><td>" + link + "</td><td>" + type + "</td><td>" + category + "</td><td><button onclick='publish(this)'>Publish</button><button onclick='remove(this)'>Remove</button></td></tr>";
+      }
+    }
+
+    // Функции за објавување и отстранување
+    function publish(button) {
+      button.disabled = true;
+      button.nextElementSibling.disabled = true;
+      button.style.background = "blue";
+      var polnac = document.getElementById("vkupno");
+      global++;
+      polnac.innerHTML = global;
+    }
+
+    function remove(button) {
+      var redica = button.parentElement.parentElement;
+      redica.remove();
+      var pomos = document.getElementById("izbrisan");
+      pomos.innerHTML = "finki";
+      dodavanja--;
+      var kraenrez = document.getElementById("vkupnododavanja");
+      kraenrez.innerHTML=dodavanja;
+
+    }
+
+    // Функција за внесување на нов пост
+    function import_post() {
+      var naslov = document.getElementById("naslov").value;
+      var postirano = document.getElementById("postirano").value;
+      var type = document.getElementById("free").checked ? "Free" : "Paid";
+      var category = document.getElementById("kategorija").value;
+
+      if (naslov === "" || postirano === "") {
+        alert("Внесете вредност во сите полиња");
+        return;
+      }
+
+      var linkce = "finki.ukim.mk/" + naslov.toLowerCase().replace(" ", "-");
+
+      var polni = document.getElementById("rezultat");
+      polni.innerHTML += "<tr><td>" + naslov + "</td><td>" + postirano + "</td><td>" + linkce + "</td><td>" + type + "</td><td>" + category + "</td><td><button onclick='publish(this)'>Publish</button><button onclick='remove(this)'>Remove</button></td></tr>";
+      var brojac = document.getElementById("vkupnododavanja");
+      dodavanja++;
+      brojac.innerHTML=dodavanja;
+
+    }
+  </script>
+</head>
+<body onload="populateTable()">
+<h1>Post details</h1>
+<div>
+  <span>Title:</span> <input type="text" id="naslov">
+</div>
+<div>
+  <span>Post:</span> <input type="text" id="postirano">
+</div>
+<div>
+  <span>Content type:</span> <input type="radio" id="free"><span>Free</span> <input type="radio" id="paid"><span>Paid</span>
+</div>
+
+<div>
+  <span>Cantegory:</span> <select id="kategorija">
+  <option>Science</option>
+  <option>Education</option>
+  <option>Industry</option>
+</select>
+</div>
+
+<div>
+  <button onclick="import_post()">Import post</button>
+</div>
+<h1>Published posts<span id="vkupno">0</span></h1>
+<table id="rezultat">
+  <tr><th>Title</th><th>Post</th><th>Link</th><th>Type</th><th>Category</th><th>Actions</th></tr>
+</table>
+<h2>Removed lists</h2>
+<div>
+  <span id="izbrisan">""</span>
+</div>
+<h1>Vkupno dodavanja<span id="vkupnododavanja">0</span></h1>
+</body>
+</html>

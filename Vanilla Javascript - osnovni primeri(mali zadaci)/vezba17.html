@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      prop:this,
+      embed:{
+        method:function (){
+          return this;
+        }
+      }
+
+    };
+    var array = [
+            this,
+            function (){
+      return this;
+    }
+    ];
+    function global(){
+      return this;
+    }
+    global.call(object);
+    new global();
+  </script>
+</body>
+</html>

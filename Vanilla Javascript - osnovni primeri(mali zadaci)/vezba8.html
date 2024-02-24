@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table, tr, td, th {
+      border: 1px solid;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+  </style>
+  <script>
+    var global = 0;
+    var data = '[{"title":"FCSE announcement", "post":"FSCE is starting with classes this semestar from 15th Feb.", "type":"Free", "category":"Education", "published":true},{"title":"What is ann NFT", "post":"An NFT, which stands for non-fungible token, is a unique unit of data employing technology that allows digital content to become logged and authenticated on cryptocurrency blockchains", "type":"Free", "category":"Science", "published": false}]'
+    var newData = JSON.parse(data);
+    var counter = 0;
+    for (var i = 0; i < newData.length; i++) {
+      var title = newData[i].title;
+      var post = newData[i].post;
+      var type = newData[i].type;
+      var category = newData[i].category;
+      var link = "finki.ukim.mk/" + title.toLowerCase().replace(" ", "-");
+      var vnes = document.getElementById("rezultat");
+      vnes.innerHTML += "<tr><td>" + title + "</td><td>" + post + "</td><td>" + link + "</td><td>" + type + "</td><td>" + category + "</td><td><button onclick='publish(this)'>Publish</button><button onclick='remove(this)'>Remove</button></td></tr>";
+    }
+
+    function import_post() {
+      var naslov = document.getElementById("naslov").value;
+      var postirano = document.getElementById("postirano").value;
+      var free = document.getElementById("free").checked;
+      var kategorija = document.getElementById("kategorija").value;
+
+      if ((naslov === "") || (postirano === "") || (kategorija === "")) {
+        alert("Vnesete vrednost vo site polinja");
+        return;
+      }
+
+      var linkce = "finki.ukim.mk/" + naslov.toLowerCase().replace(" ", "-");
+      var polni = document.getElementById("rezultat");
+      polni.innerHTML += "<tr><td>" + naslov + "</td><td>" + postirano + "</td><td>" + linkce + "</td><td>" + (free ? "Free" : "Paid") + "</td><td>" + kategorija + "</td><td><button onclick='publish(this)'>Publish</button><button onclick='remove(this)'>Remove</button></td></tr>";
+    }
+
+    function publish(button) {
+      button.disabled = true;
+      button.nextElementSibling.disabled = true;
+      button.style.background = "blue";
+      var polnac = document.getElementById("vkupno");
+      global++;
+      polnac.innerHTML = global;
+    }
+
+    function remove(button) {
+      var redica = button.parentElement.parentElement;
+      redica.remove();
+      var pomos = document.getElementById("izbrisan");
+      pomos.innerHTML = "finki";
+    }
+  </script>
+</head>
+<body>
+<h1>Post details</h1>
+<div>
+  <span>Title:</span> <input type="text" id="naslov">
+</div>
+<div>
+  <span>Post:</span> <input type="text" id="postirano">
+</div>
+<div>
+  <span>Content type:</span> <input type="radio" id="free"><span>Free</span> <input type="radio" id="paid"><span>Paid</span>
+</div>
+<div>
+  <span>Category:</span>
+  <select id="kategorija">
+    <option>Science</option>
+    <option>Education</option>
+    <option>Industry</option>
+  </select>
+</div>
+<div>
+  <button onclick="import_post()">Import post</button>
+</div>
+<h1>Published posts<span id="vkupno">0</span></h1>
+<table id="rezultat">
+  <tr><th>Title</th><th>Post</th><th>Link</th><th>Type</th><th>Category</th><th>Actions</th></tr>
+</table>
+<h2>Removed lists</h2>
+<div>
+  <span id="izbrisan">""</span>
+</div>
+</body>
+</html>

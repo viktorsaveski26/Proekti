@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #rezultat div{
+      border: 1px solid;
+      width: 150px;
+      height: 230px;
+      display: inline-block;
+    }
+  </style>
+  <script>
+
+
+    var vkSmetki = 0;
+    function plati (button){
+      button.disabled = true;
+      button.nextElementSibling.disabled = true;
+    }
+    function  izbrisi(button){
+      var parent = button.parentNode;
+      parent.parentNode.removeChild(parent);
+      vkSmetki--;
+      var element = document.getElementById("vkupno")
+      element.innerHTML = vkSmetki;
+
+    }
+    function generiraj(){
+
+      var ime = document.getElementById("ime");
+      ime = ime.value;
+      var prezime = document.getElementById("prezime");
+      prezime = prezime.value;
+      var reg = document.getElementById("reg");
+      reg = reg.value;
+      var god = document.getElementById("god");
+      god = god.value;
+      var da =document.getElementById("da");
+      da = da.checked;
+      var ne = document.getElementById("ne");
+      ne = ne.checked;
+
+      if(ime == "" || prezime == "" || reg == "" || god =="" || (da.checked == false && no.checked == false)){
+        alert("Vnesete vrednost vo site polinja")
+        return;
+      }
+      if(reg.length != 10){
+        alert("Pogresno vnesena tablicka")
+        return;
+      }
+      if(reg.charAt(2) != "-" && reg.charAt(7) != "-"){
+        alert("Fali crticka")
+        return;
+      }
+      if((reg.charAt(3) !=1)&&(reg.charAt(3) != 2)&&(reg.charAt(3) != 3)&&(reg.charAt(3) != 4) &&(reg.charAt(3) != 5) &&(reg.charAt(3) != 6)&&(reg.charAt(3) != 7) && (reg.charAt(3) != 8) &&(reg.charAt(3) != 9)) {
+        alert("Ne e broj")
+        return;
+      }
+      if((reg.charAt(4) !=1)&&(reg.charAt(4) != 2)&&(reg.charAt(4) != 3)&&(reg.charAt(4) != 4) &&(reg.charAt(4) != 5) &&(reg.charAt(4) != 6)&&(reg.charAt(4) != 7) && (reg.charAt(4) != 8) &&(reg.charAt(4) != 9)) {
+        alert("Ne e broj")
+        return;
+      }
+      if((reg.charAt(5) !=1)&&(reg.charAt(5) != 2)&&(reg.charAt(5) != 3)&&(reg.charAt(5) != 4) &&(reg.charAt(5) != 5) &&(reg.charAt(5) != 6)&&(reg.charAt(5) != 7) && (reg.charAt(5) != 8) &&(reg.charAt(5) != 9)) {
+        alert("Ne e broj")
+        return;
+      }
+      if((reg.charAt(6) !=1)&&(reg.charAt(6) != 2)&&(reg.charAt(6) != 3)&&(reg.charAt(6) != 4) &&(reg.charAt(6) != 5) &&(reg.charAt(6) != 6)&&(reg.charAt(6) != 7) && (reg.charAt(6) != 8) &&(reg.charAt(6) != 9)) {
+        alert("Ne e broj")
+        return;
+      }
+      if((reg.charAt(0) != "A")&&(reg.charAt(0) != "B")&&(reg.charAt(0) != "C")&&(reg.charAt(0)!="D")&&(reg.charAt(0)!= "E")&&(reg.charAt(0)!= "F")&&(reg.charAt(0)!= "G")&&(reg.charAt(0)!= "H")&&(reg.charAt(0)!= "I")&&(reg.charAt(0)!= "J")&&(reg.charAt(0)!= "K")&&(reg.charAt(0)!= "L")&&(reg.charAt(0)!= "M")&&(reg.charAt(0)!= "N")&&(reg.charAt(0)!= "O")&&(reg.charAt(0)!= "P")&&(reg.charAt(0)!= "Q")&&(reg.charAt(0)!= "R")&&(reg.charAt(0)!= "S")&&(reg.charAt(0)!= "T")&&(reg.charAt(0)!= "Y")&&(reg.charAt(0)!= "V")&&(reg.charAt(0)!= "W")&&(reg.charAt(0)!= "X")&&(reg.charAt(0)!= "U")&&(reg.charAt(0)!= "Z")){
+        alert("Ne e bukva")
+        return;
+      }
+      if((reg.charAt(1) != "A")&&(reg.charAt(1) != "B")&&(reg.charAt(1) != "C")&&(reg.charAt(1)!="D")&&(reg.charAt(1)!= "E")&&(reg.charAt(1)!= "F")&&(reg.charAt(1)!= "G")&&(reg.charAt(1)!= "H")&&(reg.charAt(1)!= "I")&&(reg.charAt(1)!= "J")&&(reg.charAt(1)!= "K")&&(reg.charAt(1)!= "L")&&(reg.charAt(1)!= "M")&&(reg.charAt(1)!= "N")&&(reg.charAt(1)!= "O")&&(reg.charAt(1)!= "P")&&(reg.charAt(1)!= "Q")&&(reg.charAt(1)!= "R")&&(reg.charAt(1)!= "S")&&(reg.charAt(1)!= "T")&&(reg.charAt(1)!= "Y")&&(reg.charAt(1)!= "V")&&(reg.charAt(1)!= "W")&&(reg.charAt(1)!= "X")&&(reg.charAt(1)!= "U")&&(reg.charAt(1)!= "Z")){
+        alert("Ne e bukva")
+        return;
+      }
+      if((reg.charAt(8) != "A")&&(reg.charAt(8) != "B")&&(reg.charAt(8) != "C")&&(reg.charAt(8)!="D")&&(reg.charAt(8)!= "E")&&(reg.charAt(8)!= "F")&&(reg.charAt(8)!= "G")&&(reg.charAt(8)!= "H")&&(reg.charAt(8)!= "I")&&(reg.charAt(8)!= "J")&&(reg.charAt(8)!= "K")&&(reg.charAt(8)!= "L")&&(reg.charAt(8)!= "M")&&(reg.charAt(8)!= "N")&&(reg.charAt(8)!= "O")&&(reg.charAt(8)!= "P")&&(reg.charAt(8)!= "Q")&&(reg.charAt(8)!= "R")&&(reg.charAt(8)!= "S")&&(reg.charAt(8)!= "T")&&(reg.charAt(8)!= "Y")&&(reg.charAt(8)!= "V")&&(reg.charAt(8)!= "W")&&(reg.charAt(8)!= "X")&&(reg.charAt(8)!= "U")&&(reg.charAt(8)!= "Z")){
+        alert("Ne e bukva")
+        return;
+      }
+      if((reg.charAt(9) != "A")&&(reg.charAt(9) != "B")&&(reg.charAt(9) != "C")&&(reg.charAt(9)!="D")&&(reg.charAt(9)!= "E")&&(reg.charAt(9)!= "F")&&(reg.charAt(9)!= "G")&&(reg.charAt(9)!= "H")&&(reg.charAt(9)!= "I")&&(reg.charAt(9)!= "J")&&(reg.charAt(9)!= "K")&&(reg.charAt(9)!= "L")&&(reg.charAt(9)!= "M")&&(reg.charAt(9)!= "N")&&(reg.charAt(9)!= "O")&&(reg.charAt(9)!= "P")&&(reg.charAt(9)!= "Q")&&(reg.charAt(9)!= "R")&&(reg.charAt(9)!= "S")&&(reg.charAt(9)!= "T")&&(reg.charAt(9)!= "Y")&&(reg.charAt(9)!= "V")&&(reg.charAt(9)!= "W")&&(reg.charAt(9)!= "X")&&(reg.charAt(9)!= "U")&&(reg.charAt(9)!= "Z")){
+        alert("Ne e bukva")
+        return;
+      }
+      var pomos = 3000;
+      var osnovna = parseInt(pomos);
+
+      if((reg.charAt(3) == reg.charAt(4)) && (reg.charAt(3) == reg.charAt(5)) && (reg.charAt(3) == reg.charAt(6))){
+        osnovna+=1000;
+      }
+      var rezultat = document.getElementById("rezultat");
+      var sobrakajki = "";
+      if(da){
+        osnovna+=500;
+        sobrakajki+="ima";
+      }
+      if(ne){
+       sobrakajki+="nema";
+      }
+
+
+      if(parseInt(god) > 30){
+        boja = "red";
+      }
+      else{
+        boja = "green"
+      }
+      rezultat.innerHTML+="<div style='background: "+boja+"'><p>"+ime+" "+prezime+"</p><p>"+reg+"</p><p>Coobrakajki:"+sobrakajki+"</p><p>Starost na vozilo"+god+"</p><p>Za plakanje:"+osnovna+"</p><button  onclick='plati(this)' id='plati'>Plati</button><button id='brisi' onclick='izbrisi(this)' >Izbrisi</button></div>"
+      var dodaj = document.getElementById("vkupno");
+      vkSmetki++;
+      dodaj.innerHTML = vkSmetki;
+      var ime = document.getElementById("ime");
+      ime.value = "";
+      var prezime = document.getElementById("prezime");
+      prezime.value = "";
+      var reg = document.getElementById("reg");
+      reg.value = "";
+      var god = document.getElementById("god");
+      god.value = "";
+      var da =document.getElementById("da");
+      da.checked ="";
+      var ne = document.getElementById("ne");
+      ne.checked = "";
+    }
+  </script>
+</head>
+<body>
+<h1>Осигурување на возила</h1>
+<div>
+  <span>Име</span><input type="text" id="ime">
+</div>
+<div>
+  <span>Презиме</span><input type="text" id="prezime">
+</div>
+<div>
+  <span>Регистарска таблица</span><input type="text" id="reg">
+</div>
+<div>
+  <span>Години на старост</span><input type="text" id="god">
+</div>
+<div>
+  <span>Сообраќајна незгода</span><input type="radio" id="da"><span>da</span><input type="radio" id="ne"><span>ne</span>
+</div>
+<div>
+  <button id="generiraj" onclick="generiraj()">Генерирај сметка</button>
+</div>
+<h2>Сметки</h2>
+<p>Вкупно сметки за плаќање: <span id="vkupno">0</span></p>
+<div id="rezultat">
+
+</div>
+</body>
+</html>

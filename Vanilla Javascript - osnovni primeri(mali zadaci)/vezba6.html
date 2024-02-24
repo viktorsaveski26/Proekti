@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  var x = prompt("Vnesete broj");
+  var n = prompt("Vnesete stepen na toj broj ");
+  x = parseInt(x);
+  n = parseInt(n);
+  if(!isNaN(x) && !isNaN(n)){
+    var rez = 1;
+    for(var i = 0; i < n; i++){
+      rez*=x;
+    }
+    console.log(rez);
+  }
+  else{
+    console.log("Nemate pravilen vlez");
+  }
+</script>
+
+</body>
+</html>
