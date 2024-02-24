@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    var vkupna_suma = 0 // iako ima isto ime kako i vo span kade sto cuvame ne e problem, moze ova da se vika i poinaku
+    function remove(button){
+      //za da znaeme koe kopce ja povikalo ovaa funkcija najdobro  e da iskoristime this
+      //so this kako argument go isprakame direktno samoto kopce koe sto ja povikalo f-jata
+      //toa go pisuvame dolu kaj so prajme onclick a ovde kako argument ke go stavime samoto kopce button
+      var redica = button.parentNode.parentNode // so ova se dobiva roditelot na kopceto t.e. td elementot(ova so prvoto povikuvanje) so vtoroto se dobiva tr ...ez e ova ajde
+      //na ovoj nacin od kopceto dojdove do  redicata <3
+      //redica.parentNode ova sega otkako ke go napisime e fakticki cela tabela bidejki na redicata roditel e celata tabela
+      redica.parentNode.removeChild(redica)//na tabelata sakam da napravam remove child redica :D
+      var kelii_redica = redica.getElementsByTagName("td")
+      kelija_cena = kelii_redica[2]
+      cena = kelija_cena.innerHTML
+      vkupna_suma-=parseInt(cena)
+      var pole_suma = document.getElementById("vkupna_suma")
+      pole_suma.innerHTML = vkupna_suma
+    }
+    function submit_data(){
+      var avtor = document.getElementById("avtor")
+      avtor = avtor.value
+      var proekt = document.getElementById("proekt")
+      proekt = proekt.value
+      var cena = document.getElementById("cena")
+      cena = cena.value
+      if(avtor == "" || proekt == "" || cena == ""){
+        alert("Imate prazno pole");
+        return;
+      } //vo sprotivno treba da se dodade nova redica vo tabelata :D
+      var tabela = document.getElementById("tabela")
+      tabela.innerHTML += "<tr><td>"+avtor+"</td><td>"+proekt+"</td><td>"+cena+"</td><td><button onclick='remove(this)'>Remove</button></td></tr>"
+      vkupna_suma+=parseInt(cena);
+      var pole_suma = document.getElementById("vkupna_suma")
+      pole_suma.innerHTML = vkupna_suma
+      //sega sakame da gi resetirame polinjata pa zatoa treba da go napravime slednoto
+      var avtor = document.getElementById("avtor")
+      avtor.value = ""
+      var proekt = document.getElementById("proekt")
+      proekt.value = ""
+      var cena = document.getElementById("cena")
+      cena.value = ""
+    }
+  </script>
+  <style>
+    div{
+      margin-bottom: 15px;
+    }
+    table,tr,td,th{
+      border: 1px solid black;
+    }
+    table{
+      border-collapse: collapse;
+    }
+
+  </style>
+</head>
+<body>
+<h2>Forma za prijavuvanje</h2>
+<div>
+  <span>Avtor: </span><input type="text" id="avtor">
+</div>
+<div>
+  <span>Proekt: </span> <input type="text" id="proekt">
+</div>
+<div>
+  <span>Cena: </span> <input type="text" id="cena">
+</div>
+
+<button onclick="submit_data()">Prati</button>
+<p>Vkupnata suma na proektite : <span id="vkupna_suma">0 </span></p>
+<table id="tabela">
+  <tr><th>Author</th><th>Project</th><th colspan="2">Cost</th></tr>
+
+</table>
+</body>
+</html>
