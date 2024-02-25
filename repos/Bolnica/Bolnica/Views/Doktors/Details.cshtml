@@ -1,0 +1,45 @@
+﻿@model Bolnica.Models.Doktor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Doktor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Odel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Odel)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) 
+    @Html.ActionLink("Back to List", "Index")
+    <br />
+    <br />
+    @Html.ActionLink("Dodadi pacient", "Nov", "Pacietns")
+</p>

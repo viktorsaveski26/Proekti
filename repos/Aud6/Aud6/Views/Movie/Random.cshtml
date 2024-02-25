@@ -1,0 +1,22 @@
+﻿@model Aud6.Models.MovieRentals
+@{
+    ViewBag.Title = "Random";
+}
+
+<table>
+@{ 
+    int i = 0;
+    foreach(var filmovi in Model.movies)
+            {
+                <tr>
+                    <td><a href="ShowMovie/@i">@filmovi.Name</a></td>
+                    <td><a href="ShowMovie/@i"> @filmovi.Rating</a></td>
+                    <td>
+                    <img src="@filmovi.ImageUrl" /></td>
+                    <td><a href="Delete/@i">Delete</a></td>
+                    <td><a href="Edit/@i">Edit</a></td>
+                </tr>
+        i++;
+    }
+}
+    </table>

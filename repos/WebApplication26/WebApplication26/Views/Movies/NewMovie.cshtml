@@ -1,0 +1,31 @@
+﻿@model WebApplication26.Models.Movie
+@{
+    ViewBag.Title = "NewMovie";
+}
+
+<h2>Add new movie!</h2>
+
+@using (Html.BeginForm("InsertNewMovie", "Movies")) // isto kako da otvarame form tag kade sto kazuvame do koja akcija odime primer InsertNewMovie, od koj ontroler
+                                                   //po default ova e so metod post, ako sakame so metod get mozeme istoto da go stavime kako tret parametar.
+
+{
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Rating)
+        @Html.TextBoxFor(m => m.Rating)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.DownloadUrl)
+        @Html.TextBoxFor(m => m.DownloadUrl)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.ImageUrl)
+        @Html.TextBoxFor(m => m.ImageUrl)
+      
+    </div>
+    <button type="submit">Save</button>
+}

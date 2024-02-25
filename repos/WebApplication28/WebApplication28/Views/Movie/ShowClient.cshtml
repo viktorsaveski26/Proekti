@@ -1,0 +1,19 @@
+﻿@model WebApplication28.Models.Client
+@{
+    ViewBag.Title = "ShowClient";
+}
+
+
+@{
+    if (Model.Age < 18)
+    {
+        <h2 style="color:red">Ne ste polnoletni</h2>
+    }
+    else
+    {
+        <h2>@Model.Name</h2>
+        <h2>@Model.ClenskaKarta</h2>
+        <h2>@Model.Phone</h2>
+        <h2>@Model.Address</h2>
+    }
+}
